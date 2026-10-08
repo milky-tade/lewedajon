@@ -1,0 +1,1801 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>LEWEDAJO — Trusted Ethiopian Diaspora Shopping & Delivery Service</title>
+  <meta name="description"
+    content="LEWEDAJO purchases and delivers medicine, groceries, gifts, electronics, and documents to your loved ones in Ethiopia. Trusted diaspora delivery service with photo proof.">
+
+  <!-- Favicon / Brand Icon for Search Bar, Browser Tabs & Bookmarks -->
+  <link rel="icon" type="image/svg+xml" href="data:image/svg+xml,%3Csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 64 64'%3E%3Cdefs%3E%3ClinearGradient id='g' x1='0%25' y1='0%25' x2='100%25' y2='100%25'%3E%3Cstop offset='0%25' stop-color='%232E7D32'/%3E%3Cstop offset='100%25' stop-color='%234CAF50'/%3E%3C/linearGradient%3E%3C/defs%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='url(%23g)'/%3E%3Crect x='2' y='2' width='60' height='60' rx='16' fill='none' stroke='%23FFF' stroke-opacity='0.25' stroke-width='2'/%3E%3Cg transform='translate(32, 32) scale(2.2) translate(-11, -15)'%3E%3Cpath d='M17 8C8 10 5.9 16.17 3.82 22H5.72C6.41 20.05 7.48 17.95 9 16c3.38 4 7.61 3.52 9 2 .35-.35 1.04-1.76.35-4.27C17.65 11.47 17 8 17 8z' fill='%23FFF'/%3E%3C/g%3E%3C/svg%3E">
+  <link rel="icon" type="image/svg+xml" href="favicon.svg">
+  <link rel="icon" type="image/png" sizes="64x64" href="favicon.png">
+  <link rel="shortcut icon" href="favicon.ico">
+  <link rel="apple-touch-icon" sizes="180x180" href="apple-touch-icon.png">
+
+  <!-- Google Fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link
+    href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700;800&family=Playfair+Display:wght@700&family=Noto+Serif+Ethiopic:wght@400;500;600;700&display=swap"
+    rel="stylesheet">
+
+  <!-- Font Awesome 6 -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css">
+
+  <!-- AOS Animate on Scroll -->
+  <link href="https://unpkg.com/aos@2.3.4/dist/aos.css" rel="stylesheet">
+
+  <!-- Tailwind CSS -->
+  <script src="https://cdn.tailwindcss.com"></script>
+  <script>
+    tailwind.config = {
+      theme: {
+        extend: {
+          colors: {
+            brand: {
+              light: '#A5D6A7',
+              DEFAULT: '#4CAF50',
+              dark: '#388E3C',
+              xlight: '#F7FFF7',
+            },
+            ethiopia: {
+              green: '#078930',
+              yellow: '#FCDD09',
+              red: '#DA121A',
+            }
+          },
+          fontFamily: {
+            display: ['Playfair Display', 'serif'],
+            body: ['Inter', 'sans-serif'],
+            ethiopic: ['Noto Serif Ethiopic', 'Nyala', 'serif'],
+          }
+        }
+      }
+    }
+  </script>
+
+  <style>
+    :root {
+      --color-primary: #4CAF50;
+      --color-primary-dark: #388E3C;
+      --color-primary-light: #A5D6A7;
+      --color-accent: #81C784;
+      --color-bg: #F7FFF7;
+      --color-text: #1F2937;
+    }
+
+    html {
+      scroll-behavior: smooth;
+    }
+
+    body {
+      font-family: 'Inter', sans-serif;
+      color: var(--color-text);
+      background: var(--color-bg);
+      overflow-x: hidden;
+    }
+
+    /* Ethiopian flag stripe */
+    .ethiopian-border {
+      height: 4px;
+      background: linear-gradient(to right, #078930 33.3%, #FCDD09 33.3%, #FCDD09 66.6%, #DA121A 66.6%);
+    }
+
+    /* Language buttons */
+    .lang-btn {
+      padding: 6px 12px;
+      border-radius: 20px;
+      font-size: 0.8rem;
+      font-weight: 600;
+      border: 1.5px solid #D1FAE5;
+      background: transparent;
+      cursor: pointer;
+      transition: all 0.2s;
+      color: #374151;
+    }
+
+    .lang-btn.active,
+    .lang-btn:hover {
+      background: #4CAF50;
+      color: white;
+      border-color: #4CAF50;
+    }
+
+    /* Service cards */
+    .service-card {
+      cursor: pointer;
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .service-card:hover {
+      transform: translateY(-6px) scale(1.02);
+      box-shadow: 0 16px 40px rgba(76, 175, 80, 0.22);
+    }
+
+    /* Section heading shadow */
+    .section-heading-shadow {
+      text-shadow: 0 2px 8px rgba(76, 175, 80, 0.10);
+    }
+
+    /* Animations */
+    @keyframes pulseGlow {
+
+      0%,
+      100% {
+        box-shadow: 0 0 0 0 rgba(37, 211, 102, 0.7);
+      }
+
+      50% {
+        box-shadow: 0 0 0 16px rgba(37, 211, 102, 0);
+      }
+    }
+
+    @keyframes floatSlow {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-10px);
+      }
+    }
+
+    @keyframes floatMedium {
+
+      0%,
+      100% {
+        transform: translateY(0px);
+      }
+
+      50% {
+        transform: translateY(-7px);
+      }
+    }
+
+    .animate-float-slow {
+      animation: floatSlow 5s ease-in-out infinite;
+    }
+
+    .animate-float-medium {
+      animation: floatMedium 3.8s ease-in-out infinite;
+      animation-delay: 1.5s;
+    }
+
+    /* WhatsApp float */
+    .whatsapp-float {
+      background-color: #25d366;
+      color: white;
+      border-radius: 50%;
+      width: 60px;
+      height: 60px;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 32px;
+      box-shadow: 0 4px 14px rgba(0, 0, 0, 0.3);
+      transition: transform 0.3s ease;
+      animation: pulseGlow 2.5s infinite;
+    }
+
+    .whatsapp-float:hover {
+      transform: scale(1.1);
+      color: white;
+    }
+
+    /* Modal */
+    .modal-overlay {
+      position: fixed;
+      inset: 0;
+      background: rgba(0, 0, 0, 0.55);
+      z-index: 1000;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      padding: 16px;
+    }
+
+    .modal-box {
+      background: white;
+      border-radius: 20px;
+      width: 100%;
+      max-width: 680px;
+      max-height: 90vh;
+      overflow-y: auto;
+      box-shadow: 0 24px 64px rgba(0, 0, 0, 0.18);
+    }
+
+    .modal-header {
+      background: linear-gradient(135deg, #4CAF50, #388E3C);
+      color: white;
+      padding: 24px 28px 20px;
+      border-radius: 20px 20px 0 0;
+      position: sticky;
+      top: 0;
+      z-index: 10;
+    }
+
+    .modal-body {
+      padding: 24px 28px 28px;
+    }
+
+    .form-field {
+      margin-bottom: 16px;
+    }
+
+    .form-field label {
+      display: block;
+      font-size: 0.875rem;
+      font-weight: 600;
+      color: #374151;
+      margin-bottom: 6px;
+    }
+
+    .form-field input,
+    .form-field select,
+    .form-field textarea {
+      width: 100%;
+      border: 1.5px solid #D1FAE5;
+      border-radius: 10px;
+      padding: 10px 14px;
+      font-size: 0.9rem;
+      color: #1F2937;
+      background: #F7FFF7;
+      transition: border-color 0.2s;
+      outline: none;
+    }
+
+    .form-field input:focus,
+    .form-field select:focus,
+    .form-field textarea:focus {
+      border-color: #4CAF50;
+      background: white;
+    }
+
+    .dynamic-field {
+      display: none;
+    }
+
+    .dynamic-field.visible {
+      display: block;
+    }
+
+    .success-panel {
+      display: none;
+      text-align: center;
+      padding: 40px 24px;
+    }
+
+    .success-panel.visible {
+      display: block;
+    }
+
+    /* FAQ chevron */
+    .faq-icon {
+      transition: transform 0.3s ease;
+    }
+
+    /* Proof card hover */
+    .proof-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .proof-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(76, 175, 80, 0.15);
+    }
+
+    /* Why-us card hover */
+    .why-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .why-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(76, 175, 80, 0.15);
+    }
+
+    /* Testimonial card */
+    .testimonial-card {
+      transition: transform 0.25s ease, box-shadow 0.25s ease;
+    }
+
+    .testimonial-card:hover {
+      transform: translateY(-4px);
+      box-shadow: 0 12px 32px rgba(76, 175, 80, 0.15);
+    }
+  </style>
+</head>
+
+<body>
+
+  <!-- Ethiopian Flag Stripe -->
+  <div class="ethiopian-border w-full"></div>
+
+  <!-- ============================================ -->
+  <!-- NAVIGATION -->
+  <!-- ============================================ -->
+  <nav class="bg-white/95 backdrop-blur-md shadow-sm sticky top-0 z-50 border-b border-green-100">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="flex items-center justify-between h-20">
+
+        <!-- Logo -->
+        <a href="#" class="flex items-center gap-2 leading-none">
+          <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#4CAF50" class="w-7 h-7 flex-shrink-0">
+            <path
+              d="M17 8C8 10 5.9 16.17 3.82 22H5.72C6.41 20.05 7.48 17.95 9 16c3.38 4 7.61 3.52 9 2 .35-.35 1.04-1.76.35-4.27C17.65 11.47 17 8 17 8z" />
+          </svg>
+          <div class="flex flex-col items-start leading-none gap-0">
+            <span
+              style="font-family:'Playfair Display',serif; font-size:1.875rem; font-weight:700; color:#2E7D32; letter-spacing:-0.5px;">
+              LEWE<span style="color:#1F2937;">DAJO</span>
+            </span>
+            <span
+              style="font-family:'Noto Serif Ethiopic','Nyala',serif; font-size:0.75rem; font-weight:500; color:#4CAF50; letter-spacing:1px;">
+              ለወዳጆ
+            </span>
+          </div>
+        </a>
+
+        <!-- Desktop Nav -->
+        <div class="hidden lg:flex items-center gap-6">
+          <a href="#how-it-works" class="text-gray-600 hover:text-brand font-medium text-sm transition-colors"
+            data-i18n="nav_how_it_works">How It Works</a>
+          <a href="#services" class="text-gray-600 hover:text-brand font-medium text-sm transition-colors"
+            data-i18n="nav_services">Services</a>
+          <a href="#proof" class="text-gray-600 hover:text-brand font-medium text-sm transition-colors"
+            data-i18n="nav_proof">Proof of Delivery</a>
+          <a href="#faq" class="text-gray-600 hover:text-brand font-medium text-sm transition-colors"
+            data-i18n="nav_faq">FAQ</a>
+
+          <!-- Language Switcher -->
+          <div class="flex items-center gap-1 ml-2">
+            <button id="lang-en" class="lang-btn active" onclick="setLang('en')">EN</button>
+            <button id="lang-am" class="lang-btn" onclick="setLang('am')">አማ</button>
+            <button id="lang-om" class="lang-btn" onclick="setLang('om')">OM</button>
+          </div>
+
+          <a href="#services"
+            class="ml-2 px-5 py-2.5 border-2 border-brand text-brand rounded-full text-sm font-semibold hover:bg-brand hover:text-white transition-all"
+            data-i18n="nav_request_delivery">Request Delivery</a>
+          <a href="https://wa.me/251946734473" target="_blank"
+            class="px-5 py-2.5 bg-brand text-white rounded-full text-sm font-semibold hover:bg-brand-dark transition-all flex items-center gap-2 shadow-md hover:shadow-lg">
+            <i class="fab fa-whatsapp text-lg"></i>
+            <span data-i18n="nav_order_whatsapp">Order on WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Mobile Hamburger -->
+        <button id="mobile-menu-button"
+          class="lg:hidden p-2 rounded-lg text-gray-600 hover:bg-green-50 transition-colors" aria-label="Toggle menu">
+          <i class="fas fa-bars text-xl"></i>
+        </button>
+      </div>
+    </div>
+
+    <!-- Mobile Menu -->
+    <div id="mobile-menu" class="hidden lg:hidden bg-white border-t border-green-100 shadow-lg">
+      <div class="px-4 py-4 space-y-3">
+        <!-- Language Switcher Mobile -->
+        <div class="flex items-center justify-center gap-2 pb-3 border-b border-green-100">
+          <button id="lang-en-mobile" class="lang-btn active" onclick="setLang('en')">EN</button>
+          <button id="lang-am-mobile" class="lang-btn" onclick="setLang('am')">አማ</button>
+          <button id="lang-om-mobile" class="lang-btn" onclick="setLang('om')">OM</button>
+        </div>
+        <a href="#how-it-works"
+          class="block py-2.5 px-3 text-gray-700 hover:text-brand hover:bg-green-50 rounded-lg font-medium transition-colors mobile-nav-link"
+          data-i18n="nav_how_it_works">How It Works</a>
+        <a href="#services"
+          class="block py-2.5 px-3 text-gray-700 hover:text-brand hover:bg-green-50 rounded-lg font-medium transition-colors mobile-nav-link"
+          data-i18n="nav_services">Services</a>
+        <a href="#proof"
+          class="block py-2.5 px-3 text-gray-700 hover:text-brand hover:bg-green-50 rounded-lg font-medium transition-colors mobile-nav-link"
+          data-i18n="nav_proof">Proof of Delivery</a>
+        <a href="#faq"
+          class="block py-2.5 px-3 text-gray-700 hover:text-brand hover:bg-green-50 rounded-lg font-medium transition-colors mobile-nav-link"
+          data-i18n="nav_faq">FAQ</a>
+        <div class="pt-3 border-t border-green-100 space-y-2">
+          <a href="#services"
+            class="block text-center py-3 border-2 border-brand text-brand rounded-full font-semibold hover:bg-brand hover:text-white transition-all mobile-nav-link"
+            data-i18n="nav_request_delivery">Request Delivery</a>
+          <a href="https://wa.me/251946734473" target="_blank"
+            class="block text-center py-3 bg-brand text-white rounded-full font-semibold hover:bg-brand-dark transition-all flex items-center justify-center gap-2">
+            <i class="fab fa-whatsapp text-lg"></i>
+            <span data-i18n="nav_order_whatsapp">Order on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </nav>
+
+  <!-- ============================================ -->
+  <!-- HERO SECTION -->
+  <!-- ============================================ -->
+  <section class="relative min-h-[85vh] flex items-center overflow-hidden">
+    <!-- Background -->
+    <div class="absolute inset-0 bg-cover bg-center" style="background-image: url('hero-bg.jpg');"></div>
+    <div class="absolute inset-0 bg-gradient-to-r from-white/95 via-white/85 to-white/40"></div>
+    <div class="absolute inset-0 bg-gradient-to-t from-brand-xlight/50 via-transparent to-transparent"></div>
+
+    <div
+      class="relative z-10 max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-20 grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
+      <div class="lg:col-span-7 max-w-2xl">
+        <!-- Badge -->
+        <div
+          class="inline-flex items-center gap-2 bg-green-100 text-brand-dark px-4 py-2 rounded-full text-sm font-semibold mb-6"
+          data-aos="fade-down">
+          <i class="fas fa-shield-alt"></i>
+          <span data-i18n="hero_badge">Trusted Diaspora Service</span>
+        </div>
+
+        <!-- Title -->
+        <h1
+          class="text-4xl sm:text-5xl lg:text-6xl font-extrabold text-gray-900 leading-tight mb-6 section-heading-shadow"
+          data-aos="fade-up" data-aos-delay="100">
+          <span data-i18n="hero_title">Send Exactly What Your Loved Ones Need in Ethiopia</span>
+        </h1>
+
+        <!-- Subtitle -->
+        <p class="text-lg sm:text-xl text-gray-600 mb-8 leading-relaxed max-w-xl" data-aos="fade-up"
+          data-aos-delay="200" data-i18n="hero_desc">
+          LEWEDAJO purchases and delivers medicine, groceries, gifts, electronics, documents and more to your family in
+          Ethiopia — with photo proof of every delivery.
+        </p>
+
+        <!-- CTA Buttons -->
+        <div class="flex flex-wrap gap-4 mb-10" data-aos="fade-up" data-aos-delay="300">
+          <a href="#services"
+            class="px-8 py-4 bg-brand text-white rounded-full text-lg font-semibold hover:bg-brand-dark transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
+            <i class="fas fa-paper-plane"></i>
+            <span data-i18n="hero_cta_request">Request Delivery</span>
+          </a>
+          <a href="https://wa.me/251946734473" target="_blank"
+            class="px-8 py-4 bg-[#25d366] text-white rounded-full text-lg font-semibold hover:bg-[#1da851] transition-all shadow-lg hover:shadow-xl flex items-center gap-2">
+            <i class="fab fa-whatsapp text-xl"></i>
+            <span data-i18n="hero_cta_whatsapp">Order on WhatsApp</span>
+          </a>
+        </div>
+
+        <!-- Trust Badges -->
+        <div class="flex flex-wrap items-center gap-6" data-aos="fade-up" data-aos-delay="400">
+          <div class="flex items-center gap-2 text-brand-dark">
+            <i class="fas fa-check-circle text-brand"></i>
+            <span class="hidden sm:inline text-sm font-medium" data-i18n="hero_feat_no_fees">No hidden fees</span>
+          </div>
+          <div class="flex items-center gap-2 text-brand-dark">
+            <i class="fas fa-check-circle text-brand"></i>
+            <span class="hidden sm:inline text-sm font-medium" data-i18n="hero_feat_guaranteed">Guaranteed
+              delivery</span>
+          </div>
+          <div class="flex items-center gap-2 text-brand-dark">
+            <i class="fas fa-check-circle text-brand"></i>
+            <span class="hidden sm:inline text-sm font-medium" data-i18n="hero_feat_proof">Photo proof</span>
+          </div>
+        </div>
+      </div>
+
+      <!-- Right Column: Animated Floating Badges -->
+      <div class="lg:col-span-5 hidden lg:flex flex-col gap-5 items-end" data-aos="fade-left" data-aos-delay="300">
+        <!-- Floating Card 1 -->
+        <div
+          class="animate-float-slow bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/80 max-w-sm w-full transition-transform hover:scale-105">
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-green-100 flex items-center justify-center text-brand text-xl font-bold flex-shrink-0">
+              <i class="fas fa-bolt"></i>
+            </div>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">24-Hour Express Delivery</p>
+              <p class="text-xs text-gray-500 mt-0.5">Direct to doorsteps across Addis Ababa</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Card 2 -->
+        <div
+          class="animate-float-medium bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/80 max-w-sm w-full transition-transform hover:scale-105 mr-4">
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-emerald-100 flex items-center justify-center text-emerald-600 text-xl font-bold flex-shrink-0">
+              <i class="fas fa-camera"></i>
+            </div>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">100% Real-Time Photo Proof</p>
+              <p class="text-xs text-gray-500 mt-0.5">Purchases, receipts & handoff confirmation</p>
+            </div>
+          </div>
+        </div>
+
+        <!-- Floating Card 3 -->
+        <div
+          class="animate-float-slow bg-white/90 backdrop-blur-md p-5 rounded-2xl shadow-xl border border-white/80 max-w-sm w-full transition-transform hover:scale-105">
+          <div class="flex items-center gap-4">
+            <div
+              class="w-12 h-12 rounded-xl bg-amber-100 flex items-center justify-center text-amber-600 text-xl font-bold flex-shrink-0">
+              <i class="fas fa-shield-alt"></i>
+            </div>
+            <div>
+              <p class="font-bold text-gray-900 text-sm">Diaspora Trusted Network</p>
+              <p class="text-xs text-gray-500 mt-0.5">Loved ones cared for with love & integrity</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- HOW IT WORKS -->
+  <!-- ============================================ -->
+  <section id="how-it-works" class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div
+          class="inline-flex items-center gap-2 bg-green-100 text-brand-dark px-4 py-2 rounded-full text-sm font-semibold mb-4"
+          data-aos="fade-down">
+          <i class="fas fa-cogs"></i>
+          <span data-i18n="hiw_badge">Simple Process</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 section-heading-shadow" data-aos="fade-up"
+          data-i18n="hiw_title">How It Works</h2>
+        <p class="text-gray-600 text-lg" data-aos="fade-up" data-aos-delay="100" data-i18n="hiw_subtitle">Six easy steps
+          from your request to a confirmed delivery in Ethiopia.</p>
+      </div>
+
+      <!-- Steps Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+        <!-- Step 1 -->
+        <div class="relative bg-brand-xlight rounded-2xl p-8 border border-green-100 hover:shadow-lg transition-shadow"
+          data-aos="fade-up" data-aos-delay="0">
+          <div
+            class="absolute top-4 right-4 w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-bold">
+            1</div>
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-5">
+            <i class="fab fa-whatsapp text-2xl text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="hiw_step1_title">Send Your Request</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="hiw_step1_desc">Tell us what you need via WhatsApp
+            or our online form. Share item details, recipient info, and delivery location.</p>
+        </div>
+        <!-- Step 2 -->
+        <div class="relative bg-brand-xlight rounded-2xl p-8 border border-green-100 hover:shadow-lg transition-shadow"
+          data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="absolute top-4 right-4 w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-bold">
+            2</div>
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-file-invoice-dollar text-2xl text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="hiw_step2_title">Receive a Quote</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="hiw_step2_desc">We'll send you a transparent price
+            breakdown including item cost, service fee, and delivery charges.</p>
+        </div>
+        <!-- Step 3 -->
+        <div class="relative bg-brand-xlight rounded-2xl p-8 border border-green-100 hover:shadow-lg transition-shadow"
+          data-aos="fade-up" data-aos-delay="200">
+          <div
+            class="absolute top-4 right-4 w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-bold">
+            3</div>
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-credit-card text-2xl text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="hiw_step3_title">Make Payment</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="hiw_step3_desc">Pay securely using your preferred
+            method — bank transfer, mobile money, or other supported options.</p>
+        </div>
+        <!-- Step 4 -->
+        <div class="relative bg-brand-xlight rounded-2xl p-8 border border-green-100 hover:shadow-lg transition-shadow"
+          data-aos="fade-up" data-aos-delay="0">
+          <div
+            class="absolute top-4 right-4 w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-bold">
+            4</div>
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-shopping-bag text-2xl text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="hiw_step4_title">We Purchase the Item</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="hiw_step4_desc">Our trusted team in Addis Ababa
+            purchases the exact items you requested from verified shops and pharmacies.</p>
+        </div>
+        <!-- Step 5 -->
+        <div class="relative bg-brand-xlight rounded-2xl p-8 border border-green-100 hover:shadow-lg transition-shadow"
+          data-aos="fade-up" data-aos-delay="100">
+          <div
+            class="absolute top-4 right-4 w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-bold">
+            5</div>
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-camera text-2xl text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="hiw_step5_title">Receive Proof</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="hiw_step5_desc">We send you photos and videos of
+            the purchased items and packaging before delivery for your peace of mind.</p>
+        </div>
+        <!-- Step 6 -->
+        <div class="relative bg-brand-xlight rounded-2xl p-8 border border-green-100 hover:shadow-lg transition-shadow"
+          data-aos="fade-up" data-aos-delay="200">
+          <div
+            class="absolute top-4 right-4 w-8 h-8 bg-brand text-white rounded-full flex items-center justify-center text-sm font-bold">
+            6</div>
+          <div class="w-14 h-14 bg-green-100 rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-map-marker-alt text-2xl text-brand"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="hiw_step6_title">Delivery Completed</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="hiw_step6_desc">Items are delivered to your loved
+            ones' doorstep. You receive a photo/video confirmation upon delivery.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- SERVICES -->
+  <!-- ============================================ -->
+  <section id="services" class="py-20 lg:py-28 bg-brand-xlight">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div
+          class="inline-flex items-center gap-2 bg-green-100 text-brand-dark px-4 py-2 rounded-full text-sm font-semibold mb-4"
+          data-aos="fade-down">
+          <i class="fas fa-truck"></i>
+          <span data-i18n="services_badge">What We Deliver</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 section-heading-shadow" data-aos="fade-up"
+          data-i18n="services_title">Our Services</h2>
+        <p class="text-gray-600 text-lg" data-aos="fade-up" data-aos-delay="100" data-i18n="services_subtitle">From
+          medicine to gifts — we handle it all with care, speed, and transparency.</p>
+      </div>
+
+      <!-- Services Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8">
+
+        <!-- Medicine -->
+        <div
+          class="service-card bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
+          data-aos="fade-up" data-aos-delay="0" role="button" tabindex="0" onclick="openServiceModal('medicine')"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openServiceModal('medicine')}">
+          <div class="h-48 overflow-hidden relative">
+            <img src="purchase.jpg" alt="Medicine Delivery"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <span
+              class="absolute top-3 right-3 text-xs font-semibold bg-white/95 backdrop-blur-md text-brand-dark px-3 py-1 rounded-full shadow-sm"
+              data-i18n="service_medicine_badge">Pharmacy Verified</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3 text-brand">
+              <i class="fas fa-pills text-lg"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="service_medicine_title">Medicine Delivery</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow" data-i18n="service_medicine_desc">We
+              purchase prescription and over-the-counter medicine from verified pharmacies and deliver to your family
+              with urgency.</p>
+            <p class="text-brand font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+              data-i18n="services_cta_card">Request This Service →</p>
+          </div>
+        </div>
+
+        <!-- Document -->
+        <div
+          class="service-card bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
+          data-aos="fade-up" data-aos-delay="100" role="button" tabindex="0" onclick="openServiceModal('document')"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openServiceModal('document')}">
+          <div class="h-48 overflow-hidden relative">
+            <img src="document.jpg" alt="Document Delivery"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <span
+              class="absolute top-3 right-3 text-xs font-semibold bg-white/95 backdrop-blur-md text-brand-dark px-3 py-1 rounded-full shadow-sm"
+              data-i18n="service_document_badge">Safe & Confidential</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3 text-brand">
+              <i class="fas fa-file-alt text-lg"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="service_document_title">Document Delivery</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow" data-i18n="service_document_desc">Safely
+              pick up and deliver important documents, legal papers, or certificates across Addis Ababa and beyond.</p>
+            <p class="text-brand font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+              data-i18n="services_cta_card">Request This Service →</p>
+          </div>
+        </div>
+
+        <!-- Electronics -->
+        <div
+          class="service-card bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
+          data-aos="fade-up" data-aos-delay="200" role="button" tabindex="0" onclick="openServiceModal('electronics')"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openServiceModal('electronics')}">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1519389950473-47ba0277781c?auto=format&fit=crop&w=600&q=80"
+              alt="Electronics Delivery"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <span
+              class="absolute top-3 right-3 text-xs font-semibold bg-white/95 backdrop-blur-md text-brand-dark px-3 py-1 rounded-full shadow-sm"
+              data-i18n="service_electronics_badge">Genuine & Tested</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3 text-brand">
+              <i class="fas fa-laptop text-lg"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="service_electronics_title">Electronics Delivery
+            </h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow" data-i18n="service_electronics_desc">
+              Purchase and deliver genuine electronics — phones, laptops, accessories — from trusted retailers in
+              Ethiopia.</p>
+            <p class="text-brand font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+              data-i18n="services_cta_card">Request This Service →</p>
+          </div>
+        </div>
+
+        <!-- Gift -->
+        <div
+          class="service-card bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
+          data-aos="fade-up" data-aos-delay="0" role="button" tabindex="0" onclick="openServiceModal('gift')"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openServiceModal('gift')}">
+          <div class="h-48 overflow-hidden relative">
+            <img src="https://images.unsplash.com/photo-1549465220-1a8b9238cd48?auto=format&fit=crop&w=600&q=80"
+              alt="Gift & Celebration"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <span
+              class="absolute top-3 right-3 text-xs font-semibold bg-white/95 backdrop-blur-md text-brand-dark px-3 py-1 rounded-full shadow-sm"
+              data-i18n="service_gift_badge">Same-Day Delivery</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3 text-brand">
+              <i class="fas fa-gift text-lg"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="service_gift_title">Gift & Celebration</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow" data-i18n="service_gift_desc">Surprise your
+              loved ones with birthday gifts, holiday presents, flowers, cakes, and celebration packages.</p>
+            <p class="text-brand font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+              data-i18n="services_cta_card">Request This Service →</p>
+          </div>
+        </div>
+
+        <!-- Shopping -->
+        <div
+          class="service-card bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
+          data-aos="fade-up" data-aos-delay="100" role="button" tabindex="0" onclick="openServiceModal('shopping')"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openServiceModal('shopping')}">
+          <div class="h-48 overflow-hidden relative">
+            <img src="packeging.jpg" alt="Personal Shopping"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <span
+              class="absolute top-3 right-3 text-xs font-semibold bg-white/95 backdrop-blur-md text-brand-dark px-3 py-1 rounded-full shadow-sm"
+              data-i18n="service_shopping_badge">Fresh & Quality</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3 text-brand">
+              <i class="fas fa-shopping-bag text-lg"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="service_shopping_title">Personal Shopping</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow" data-i18n="service_shopping_desc">Groceries,
+              household items, clothing — tell us what you need and we'll shop, pack, and deliver it fresh.</p>
+            <p class="text-brand font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+              data-i18n="services_cta_card">Request This Service →</p>
+          </div>
+        </div>
+
+        <!-- Other -->
+        <div
+          class="service-card bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm flex flex-col group transition-all duration-300 hover:shadow-xl hover:-translate-y-1.5"
+          data-aos="fade-up" data-aos-delay="200" role="button" tabindex="0" onclick="openServiceModal('other')"
+          onkeydown="if(event.key==='Enter'||event.key===' '){event.preventDefault();openServiceModal('other')}">
+          <div class="h-48 overflow-hidden relative">
+            <img src="delivery.jpg" alt="Custom Requests"
+              class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105">
+            <span
+              class="absolute top-3 right-3 text-xs font-semibold bg-white/95 backdrop-blur-md text-brand-dark px-3 py-1 rounded-full shadow-sm"
+              data-i18n="service_other_badge">Tailored Errand</span>
+          </div>
+          <div class="p-6 flex flex-col flex-grow">
+            <div class="w-10 h-10 bg-green-100 rounded-lg flex items-center justify-center mb-3 text-brand">
+              <i class="fas fa-concierge-bell text-lg"></i>
+            </div>
+            <h3 class="text-xl font-bold text-gray-900 mb-2" data-i18n="service_other_title">Other Custom Requests</h3>
+            <p class="text-gray-600 text-sm leading-relaxed mb-4 flex-grow" data-i18n="service_other_desc">Have a unique
+              request? From errands to special purchases, we'll handle any custom delivery need you have.</p>
+            <p class="text-brand font-semibold text-sm flex items-center gap-1 group-hover:translate-x-1 transition-transform"
+              data-i18n="services_cta_card">Request This Service →</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- WHY CHOOSE US -->
+  <!-- ============================================ -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div
+          class="inline-flex items-center gap-2 bg-green-100 text-brand-dark px-4 py-2 rounded-full text-sm font-semibold mb-4"
+          data-aos="fade-down">
+          <i class="fas fa-award"></i>
+          <span data-i18n="why_badge">Why LEWEDAJO</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 section-heading-shadow" data-aos="fade-up"
+          data-i18n="why_title">Why Choose Us</h2>
+        <p class="text-gray-600 text-lg" data-aos="fade-up" data-aos-delay="100" data-i18n="why_subtitle">Built by the
+          diaspora, for the diaspora — we understand what it means to care from afar.</p>
+      </div>
+
+      <!-- Why Grid -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-8 mb-12">
+        <!-- Item 1 -->
+        <div class="why-card bg-brand-xlight rounded-2xl p-8 border border-green-100" data-aos="fade-up"
+          data-aos-delay="0">
+          <div class="w-12 h-12 bg-brand text-white rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-store text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="why_item1_title">Verified Purchases</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="why_item1_desc">Every item is purchased from
+            trusted, verified shops and pharmacies in Addis Ababa.</p>
+        </div>
+        <!-- Item 2 -->
+        <div class="why-card bg-brand-xlight rounded-2xl p-8 border border-green-100" data-aos="fade-up"
+          data-aos-delay="100">
+          <div class="w-12 h-12 bg-brand text-white rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-camera text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="why_item2_title">Photo & Video Proof</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="why_item2_desc">Receive real-time photos and
+            videos of your items before and after delivery.</p>
+        </div>
+        <!-- Item 3 -->
+        <div class="why-card bg-brand-xlight rounded-2xl p-8 border border-green-100" data-aos="fade-up"
+          data-aos-delay="200">
+          <div class="w-12 h-12 bg-brand text-white rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-tags text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="why_item3_title">Transparent Pricing</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="why_item3_desc">No hidden fees. You'll always know
+            exactly what you're paying for.</p>
+        </div>
+        <!-- Item 4 -->
+        <div class="why-card bg-brand-xlight rounded-2xl p-8 border border-green-100" data-aos="fade-up"
+          data-aos-delay="0">
+          <div class="w-12 h-12 bg-brand text-white rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-bolt text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="why_item4_title">Fast Delivery</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="why_item4_desc">Same-day and next-day delivery
+            options available across Addis Ababa.</p>
+        </div>
+        <!-- Item 5 -->
+        <div class="why-card bg-brand-xlight rounded-2xl p-8 border border-green-100" data-aos="fade-up"
+          data-aos-delay="100">
+          <div class="w-12 h-12 bg-brand text-white rounded-xl flex items-center justify-center mb-5">
+            <i class="fab fa-whatsapp text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="why_item5_title">WhatsApp Support</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="why_item5_desc">Reach us anytime on WhatsApp for
+            real-time updates, questions, or new orders.</p>
+        </div>
+        <!-- Item 6 -->
+        <div class="why-card bg-brand-xlight rounded-2xl p-8 border border-green-100" data-aos="fade-up"
+          data-aos-delay="200">
+          <div class="w-12 h-12 bg-brand text-white rounded-xl flex items-center justify-center mb-5">
+            <i class="fas fa-heart text-xl"></i>
+          </div>
+          <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="why_item6_title">Trusted & Reliable</h3>
+          <p class="text-gray-600 text-sm leading-relaxed" data-i18n="why_item6_desc">Hundreds of diaspora families
+            trust LEWEDAJO to deliver for their loved ones every month.</p>
+        </div>
+      </div>
+
+      <!-- Trust Banner -->
+      <div class="bg-gradient-to-r from-brand to-brand-dark rounded-2xl p-8 sm:p-12 text-center text-white"
+        data-aos="fade-up">
+        <div class="flex items-center justify-center gap-3 mb-3">
+          <i class="fas fa-users text-3xl text-green-200"></i>
+        </div>
+        <h3 class="text-2xl font-bold mb-2" data-i18n="why_stat_trust">Trusted by Hundreds of Diaspora Families</h3>
+        <p class="text-green-100 text-lg" data-i18n="why_stat_desc">Delivering love across borders, one package at a
+          time.</p>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- PROOF OF DELIVERY -->
+  <!-- ============================================ -->
+  <section id="proof" class="py-20 lg:py-28 bg-brand-xlight">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <div
+          class="inline-flex items-center gap-2 bg-green-100 text-brand-dark px-4 py-2 rounded-full text-sm font-semibold mb-4"
+          data-aos="fade-down">
+          <i class="fas fa-shield-alt"></i>
+          <span data-i18n="proof_badge">Transparency Guaranteed</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 section-heading-shadow" data-aos="fade-up"
+          data-i18n="proof_title">Proof of Delivery</h2>
+        <p class="text-gray-600 text-lg" data-aos="fade-up" data-aos-delay="100" data-i18n="proof_subtitle">We don't
+          just deliver — we prove it. Every order comes with visual confirmation.</p>
+      </div>
+
+      <!-- Proof Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-4 gap-8">
+        <!-- Card 1 - purchase.jpg -->
+        <div class="proof-card bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm"
+          data-aos="fade-up" data-aos-delay="0">
+          <div class="h-48 overflow-hidden">
+            <img src="purchase.jpg" alt="Purchase confirmation" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="proof_card1_title">Purchase Confirmation</h3>
+            <p class="text-gray-600 text-sm leading-relaxed" data-i18n="proof_card1_desc">Photos of purchased items with
+              receipts from verified shops and pharmacies.</p>
+          </div>
+        </div>
+        <!-- Card 2 - packeging.jpg -->
+        <div class="proof-card bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm"
+          data-aos="fade-up" data-aos-delay="100">
+          <div class="h-48 overflow-hidden">
+            <img src="packeging.jpg" alt="Packaging proof" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="proof_card2_title">Packaging Photos</h3>
+            <p class="text-gray-600 text-sm leading-relaxed" data-i18n="proof_card2_desc">See how we carefully package
+              your items before they head out for delivery.</p>
+          </div>
+        </div>
+        <!-- Card 3 - delivery.jpg -->
+        <div class="proof-card bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm"
+          data-aos="fade-up" data-aos-delay="200">
+          <div class="h-48 overflow-hidden">
+            <img src="delivery.jpg" alt="Delivery confirmation" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="proof_card3_title">Delivery Confirmation</h3>
+            <p class="text-gray-600 text-sm leading-relaxed" data-i18n="proof_card3_desc">Real-time photos and videos of
+              the handoff to your loved ones at their door.</p>
+          </div>
+        </div>
+        <!-- Card 4 - satisfaction.jpg -->
+        <div class="proof-card bg-white rounded-2xl overflow-hidden border border-green-100 shadow-sm"
+          data-aos="fade-up" data-aos-delay="300">
+          <div class="h-48 overflow-hidden">
+            <img src="satisfaction.jpg" alt="Customer satisfaction" class="w-full h-full object-cover">
+          </div>
+          <div class="p-6">
+            <h3 class="text-lg font-bold text-gray-900 mb-2" data-i18n="proof_card4_title">Customer Satisfaction</h3>
+            <p class="text-gray-600 text-sm leading-relaxed" data-i18n="proof_card4_desc">Follow-up confirmation from
+              the recipient so you know everything arrived perfectly.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- TESTIMONIALS -->
+  <!-- ============================================ -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center max-w-2xl mx-auto mb-16">
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 section-heading-shadow" data-aos="fade-up"
+          data-i18n="test_title">What Our Customers Say</h2>
+        <p class="text-gray-600 text-lg" data-aos="fade-up" data-aos-delay="100" data-i18n="test_subtitle">Real stories
+          from diaspora families who trust LEWEDAJO.</p>
+      </div>
+
+      <!-- Testimonial Cards -->
+      <div class="grid grid-cols-1 md:grid-cols-3 gap-8">
+        <!-- Testimonial 1 -->
+        <div class="testimonial-card bg-brand-xlight rounded-2xl p-8 border border-green-100" data-aos="fade-up"
+          data-aos-delay="0">
+          <div class="flex items-center gap-1 text-yellow-400 mb-4">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 italic mb-6 leading-relaxed" data-i18n="test_1_quote">"I was able to send my mother's
+            heart medication from the US within 24 hours. LEWEDAJO is a lifesaver — literally!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold text-sm">
+              AT</div>
+            <div>
+              <p class="font-semibold text-gray-900 text-sm" data-i18n="test_1_author">Abeba T.</p>
+              <p class="text-gray-500 text-xs" data-i18n="test_1_city">Washington, D.C.</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 2 -->
+        <div class="testimonial-card bg-brand-xlight rounded-2xl p-8 border border-green-100" data-aos="fade-up"
+          data-aos-delay="100">
+          <div class="flex items-center gap-1 text-yellow-400 mb-4">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 italic mb-6 leading-relaxed" data-i18n="test_2_quote">"I ordered a birthday cake and
+            gift for my sister in Addis. They even added a handwritten card. She was so surprised!"</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold text-sm">
+              DM</div>
+            <div>
+              <p class="font-semibold text-gray-900 text-sm" data-i18n="test_2_author">Dawit M.</p>
+              <p class="text-gray-500 text-xs" data-i18n="test_2_city">London, UK</p>
+            </div>
+          </div>
+        </div>
+        <!-- Testimonial 3 -->
+        <div class="testimonial-card bg-brand-xlight rounded-2xl p-8 border border-green-100" data-aos="fade-up"
+          data-aos-delay="200">
+          <div class="flex items-center gap-1 text-yellow-400 mb-4">
+            <i class="fas fa-star"></i><i class="fas fa-star"></i><i class="fas fa-star"></i><i
+              class="fas fa-star"></i><i class="fas fa-star"></i>
+          </div>
+          <p class="text-gray-700 italic mb-6 leading-relaxed" data-i18n="test_3_quote">"Transparent pricing, fast
+            delivery, and photo proof. I've used them 5 times now and they never disappoint."</p>
+          <div class="flex items-center gap-3">
+            <div class="w-10 h-10 bg-brand text-white rounded-full flex items-center justify-center font-bold text-sm">
+              SK</div>
+            <div>
+              <p class="font-semibold text-gray-900 text-sm" data-i18n="test_3_author">Sara K.</p>
+              <p class="text-gray-500 text-xs" data-i18n="test_3_city">Toronto, Canada</p>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FAQ -->
+  <!-- ============================================ -->
+  <section id="faq" class="py-20 lg:py-28 bg-brand-xlight">
+    <div class="max-w-3xl mx-auto px-4 sm:px-6 lg:px-8">
+      <!-- Section Header -->
+      <div class="text-center mb-16">
+        <div
+          class="inline-flex items-center gap-2 bg-green-100 text-brand-dark px-4 py-2 rounded-full text-sm font-semibold mb-4"
+          data-aos="fade-down">
+          <i class="fas fa-question-circle"></i>
+          <span data-i18n="faq_badge">Common Questions</span>
+        </div>
+        <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-4 section-heading-shadow" data-aos="fade-up"
+          data-i18n="faq_title">Frequently Asked Questions</h2>
+      </div>
+
+      <!-- Accordion -->
+      <div class="space-y-4" data-aos="fade-up">
+        <!-- Q1 -->
+        <div class="bg-white rounded-2xl border border-green-100 overflow-hidden">
+          <button
+            class="faq-button w-full flex items-center justify-between p-6 text-left hover:bg-green-50/50 transition-colors">
+            <span class="font-semibold text-gray-900 pr-4" data-i18n="faq_q1">How do I place an order?</span>
+            <i class="fas fa-chevron-down text-brand faq-icon flex-shrink-0"></i>
+          </button>
+          <div class="hidden px-6 pb-6">
+            <p class="text-gray-600 text-sm leading-relaxed" data-i18n="faq_a1">Simply send us your request via WhatsApp
+              or fill out our online service request form. Include the item details, recipient information, and delivery
+              location. We'll respond with a quote within minutes.</p>
+          </div>
+        </div>
+        <!-- Q2 -->
+        <div class="bg-white rounded-2xl border border-green-100 overflow-hidden">
+          <button
+            class="faq-button w-full flex items-center justify-between p-6 text-left hover:bg-green-50/50 transition-colors">
+            <span class="font-semibold text-gray-900 pr-4" data-i18n="faq_q2">What payment methods do you accept?</span>
+            <i class="fas fa-chevron-down text-brand faq-icon flex-shrink-0"></i>
+          </button>
+          <div class="hidden px-6 pb-6">
+            <p class="text-gray-600 text-sm leading-relaxed" data-i18n="faq_a2">We accept bank transfers, Western Union,
+              Zelle, CashApp, PayPal, and Ethiopian mobile banking (Telebirr, CBE Birr). We'll provide payment
+              instructions after confirming your order.</p>
+          </div>
+        </div>
+        <!-- Q3 -->
+        <div class="bg-white rounded-2xl border border-green-100 overflow-hidden">
+          <button
+            class="faq-button w-full flex items-center justify-between p-6 text-left hover:bg-green-50/50 transition-colors">
+            <span class="font-semibold text-gray-900 pr-4" data-i18n="faq_q3">How long does delivery take?</span>
+            <i class="fas fa-chevron-down text-brand faq-icon flex-shrink-0"></i>
+          </button>
+          <div class="hidden px-6 pb-6">
+            <p class="text-gray-600 text-sm leading-relaxed" data-i18n="faq_a3">Most deliveries within Addis Ababa are
+              completed same-day or next-day. For items outside Addis or special orders, we'll provide an estimated
+              timeline with your quote.</p>
+          </div>
+        </div>
+        <!-- Q4 -->
+        <div class="bg-white rounded-2xl border border-green-100 overflow-hidden">
+          <button
+            class="faq-button w-full flex items-center justify-between p-6 text-left hover:bg-green-50/50 transition-colors">
+            <span class="font-semibold text-gray-900 pr-4" data-i18n="faq_q4">Do you deliver outside of Addis
+              Ababa?</span>
+            <i class="fas fa-chevron-down text-brand faq-icon flex-shrink-0"></i>
+          </button>
+          <div class="hidden px-6 pb-6">
+            <p class="text-gray-600 text-sm leading-relaxed" data-i18n="faq_a4">Yes! While our fastest service is within
+              Addis Ababa, we also deliver to major cities across Ethiopia including Bahir Dar, Hawassa, Dire Dawa, and
+              more.</p>
+          </div>
+        </div>
+        <!-- Q5 -->
+        <div class="bg-white rounded-2xl border border-green-100 overflow-hidden">
+          <button
+            class="faq-button w-full flex items-center justify-between p-6 text-left hover:bg-green-50/50 transition-colors">
+            <span class="font-semibold text-gray-900 pr-4" data-i18n="faq_q5">How do I know my order was
+              delivered?</span>
+            <i class="fas fa-chevron-down text-brand faq-icon flex-shrink-0"></i>
+          </button>
+          <div class="hidden px-6 pb-6">
+            <p class="text-gray-600 text-sm leading-relaxed" data-i18n="faq_a5">We send you photo and video proof of
+              purchase, packaging, and delivery. You'll see your items in the recipient's hands before we close the
+              order.</p>
+          </div>
+        </div>
+        <!-- Q6 -->
+        <div class="bg-white rounded-2xl border border-green-100 overflow-hidden">
+          <button
+            class="faq-button w-full flex items-center justify-between p-6 text-left hover:bg-green-50/50 transition-colors">
+            <span class="font-semibold text-gray-900 pr-4" data-i18n="faq_q6">Can I send prescription medicine?</span>
+            <i class="fas fa-chevron-down text-brand faq-icon flex-shrink-0"></i>
+          </button>
+          <div class="hidden px-6 pb-6">
+            <p class="text-gray-600 text-sm leading-relaxed" data-i18n="faq_a6">Yes! We work with verified pharmacies in
+              Addis Ababa. If a prescription is required, we can help coordinate with local doctors or accept your
+              uploaded prescription.</p>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- ABOUT US -->
+  <!-- ============================================ -->
+  <section class="py-20 lg:py-28 bg-white">
+    <div class="max-w-6xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+        <!-- Left: Mission & Story -->
+        <div data-aos="fade-right">
+          <div
+            class="inline-flex items-center gap-2 bg-green-100 text-brand-dark px-4 py-2 rounded-full text-sm font-semibold mb-4">
+            <i class="fas fa-hand-holding-heart"></i>
+            <span>Who We Are</span>
+          </div>
+          <h2 class="text-3xl sm:text-4xl font-extrabold text-gray-900 mb-6 section-heading-shadow"
+            data-i18n="about_mission_title">Our Mission</h2>
+          <blockquote class="border-l-4 border-brand pl-6 text-lg text-gray-700 italic leading-relaxed mb-8"
+            data-i18n="about_mission_quote">
+            "ለወዳጆ" means "for loved ones" — and that's exactly who we serve. Every delivery we make bridges the distance
+            between you and the people who matter most.
+          </blockquote>
+          <h3 class="text-2xl font-bold text-gray-900 mb-4" data-i18n="about_story_title">Our Story</h3>
+          <p class="text-gray-600 leading-relaxed mb-4" data-i18n="about_story_p1">
+            LEWEDAJO was founded by Ethiopian diaspora members who understood the frustration of not being able to care
+            for family back home. We experienced the worry of a parent needing medicine, the desire to celebrate a
+            sibling's birthday, and the wish to send something meaningful.
+          </p>
+          <p class="text-gray-600 leading-relaxed" data-i18n="about_story_p2">
+            Today, LEWEDAJO is a trusted network of shoppers, delivery professionals, and customer care specialists in
+            Addis Ababa — dedicated to making long-distance love tangible. We are more than a delivery service. We are
+            your hands in Ethiopia.
+          </p>
+        </div>
+        <!-- Right: Team Photo -->
+        <div data-aos="fade-left" class="relative">
+          <div class="relative rounded-3xl overflow-hidden shadow-2xl border-4 border-white">
+            <img src="about-team.jpg" alt="LEWEDAJO Team in Addis Ababa"
+              class="w-full h-auto object-cover transform transition-transform duration-500 hover:scale-105">
+            <div
+              class="absolute bottom-4 left-4 right-4 bg-white/95 backdrop-blur-md rounded-2xl p-4 shadow-lg border border-green-100 flex items-center justify-between">
+              <div>
+                <p class="font-bold text-gray-900 text-sm">Addis Ababa Operations Team</p>
+                <p class="text-xs text-brand font-semibold">Active & Delivering Daily</p>
+              </div>
+              <span
+                class="inline-flex items-center px-3 py-1 rounded-full text-xs font-semibold bg-green-100 text-brand-dark">
+                <i class="fas fa-check-circle mr-1 text-brand"></i> Verified Team
+              </span>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- CTA BANNER -->
+  <!-- ============================================ -->
+  <section class="py-20 lg:py-24">
+    <div class="max-w-5xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div
+        class="bg-gradient-to-r from-brand to-brand-dark rounded-3xl p-10 sm:p-16 text-center text-white relative overflow-hidden"
+        data-aos="zoom-in">
+        <!-- Decorative circles -->
+        <div class="absolute -top-10 -right-10 w-40 h-40 bg-white/10 rounded-full"></div>
+        <div class="absolute -bottom-10 -left-10 w-32 h-32 bg-white/10 rounded-full"></div>
+
+        <h2 class="text-3xl sm:text-4xl font-extrabold mb-4 relative z-10" data-i18n="cta_title">Ready to Send Love to
+          Ethiopia?</h2>
+        <p class="text-green-100 text-lg mb-8 relative z-10" data-i18n="cta_subtitle">Place your first order today — it
+          only takes a minute.</p>
+        <div class="flex flex-wrap items-center justify-center gap-4 relative z-10">
+          <a href="#services"
+            class="px-8 py-4 bg-white text-brand rounded-full text-lg font-semibold hover:bg-green-50 transition-all shadow-lg flex items-center gap-2">
+            <i class="fas fa-paper-plane"></i>
+            <span data-i18n="cta_btn_request">Request Delivery</span>
+          </a>
+          <a href="https://wa.me/251946734473" target="_blank"
+            class="px-8 py-4 bg-[#25d366] text-white rounded-full text-lg font-semibold hover:bg-[#1da851] transition-all shadow-lg flex items-center gap-2">
+            <i class="fab fa-whatsapp text-xl"></i>
+            <span data-i18n="cta_btn_whatsapp">Order on WhatsApp</span>
+          </a>
+        </div>
+      </div>
+    </div>
+  </section>
+
+  <!-- ============================================ -->
+  <!-- FOOTER -->
+  <!-- ============================================ -->
+  <footer class="bg-gray-900 text-gray-300 pt-16 pb-8">
+    <div class="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
+      <div class="grid grid-cols-1 sm:grid-cols-2 lg:grid-cols-4 gap-10 mb-12">
+
+        <!-- Brand Column -->
+        <div>
+          <a href="#" class="flex items-center gap-2 leading-none mb-4">
+            <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="#81C784" class="w-7 h-7 flex-shrink-0">
+              <path
+                d="M17 8C8 10 5.9 16.17 3.82 22H5.72C6.41 20.05 7.48 17.95 9 16c3.38 4 7.61 3.52 9 2 .35-.35 1.04-1.76.35-4.27C17.65 11.47 17 8 17 8z" />
+            </svg>
+            <div class="flex flex-col items-start leading-none gap-0">
+              <span
+                style="font-family:'Playfair Display',serif; font-size:1.875rem; font-weight:700; color:#81C784; letter-spacing:-0.5px;">
+                LEWE<span style="color:#ffffff;">DAJO</span>
+              </span>
+              <span
+                style="font-family:'Noto Serif Ethiopic','Nyala',serif; font-size:0.75rem; font-weight:500; color:#A5D6A7; letter-spacing:1px;">
+                ለወዳጆ
+              </span>
+            </div>
+          </a>
+          <p class="text-sm text-gray-400 mb-4" data-i18n="footer_tagline">Your trusted hands in Ethiopia — delivering
+            love across borders.</p>
+          <div class="flex items-center gap-3">
+            <a href="https://web.facebook.com/profile.php?id=61595102344058" target="_blank"
+              class="w-10 h-10 bg-gray-800 hover:bg-brand rounded-lg flex items-center justify-center transition-colors">
+              <i class="fab fa-facebook-f text-white"></i>
+            </a>
+            <a href="https://wa.me/251946734473" target="_blank"
+              class="w-10 h-10 bg-gray-800 hover:bg-[#25d366] rounded-lg flex items-center justify-center transition-colors">
+              <i class="fab fa-whatsapp text-white"></i>
+            </a>
+          </div>
+        </div>
+
+        <!-- Quick Links -->
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_quick_links">Quick Links</h4>
+          <ul class="space-y-2 text-sm">
+            <li><a href="#how-it-works" class="hover:text-brand transition-colors" data-i18n="nav_how_it_works">How It
+                Works</a></li>
+            <li><a href="#services" class="hover:text-brand transition-colors" data-i18n="nav_services">Services</a>
+            </li>
+            <li><a href="#proof" class="hover:text-brand transition-colors" data-i18n="nav_proof">Proof of Delivery</a>
+            </li>
+            <li><a href="#faq" class="hover:text-brand transition-colors" data-i18n="nav_faq">FAQ</a></li>
+          </ul>
+        </div>
+
+        <!-- Contact Info -->
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_contact_title">Contact Us</h4>
+          <ul class="space-y-3 text-sm">
+            <li class="flex items-center gap-2">
+              <i class="fab fa-whatsapp text-brand"></i>
+              <a href="https://wa.me/251946734473" class="hover:text-brand transition-colors">+251 946 734 473</a>
+            </li>
+            <li class="flex items-start gap-2">
+              <i class="fas fa-clock text-brand mt-0.5"></i>
+              <span data-i18n="footer_hours">Mon – Sat: 8:00 AM – 8:00 PM (EAT)</span>
+            </li>
+          </ul>
+        </div>
+
+        <!-- Send Us a Message -->
+        <div>
+          <h4 class="text-white font-semibold mb-4" data-i18n="footer_send_msg_title">Send Us a Message</h4>
+          <form id="footer-form" class="space-y-3" onsubmit="handleFooterSubmit(event)">
+            <input type="text" name="footer_name" required
+              class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-brand focus:outline-none transition-colors"
+              data-i18n-ph="footer_form_name" placeholder="Your Name">
+            <input type="email" name="footer_email" required
+              class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-brand focus:outline-none transition-colors"
+              data-i18n-ph="footer_form_email" placeholder="Your Email">
+            <textarea name="footer_msg" rows="3" required
+              class="w-full bg-gray-800 border border-gray-700 rounded-lg px-4 py-2.5 text-sm text-white placeholder-gray-500 focus:border-brand focus:outline-none transition-colors resize-none"
+              data-i18n-ph="footer_form_msg" placeholder="Your Message"></textarea>
+            <button type="submit"
+              class="w-full bg-brand hover:bg-brand-dark text-white font-semibold py-2.5 rounded-lg text-sm transition-colors flex items-center justify-center gap-2">
+              <i class="fas fa-paper-plane text-xs"></i>
+              <span data-i18n="footer_form_send">Send Message</span>
+            </button>
+            <div id="footer-feedback"
+              class="hidden text-xs text-brand-light bg-brand-dark/30 p-2.5 rounded-lg border border-brand/40"></div>
+          </form>
+        </div>
+      </div>
+
+      <!-- Bottom Bar -->
+      <div class="border-t border-gray-800 pt-8">
+        <p class="text-center text-sm text-gray-500" data-i18n="footer_rights">© 2024 LEWEDAJO. All rights reserved.
+          Built with ❤️ for the Ethiopian diaspora.</p>
+      </div>
+    </div>
+  </footer>
+
+  <!-- ============================================ -->
+  <!-- FLOATING WHATSAPP BUTTON -->
+  <!-- ============================================ -->
+  <div class="relative group" style="position:fixed;bottom:30px;right:30px;z-index:100;">
+    <span
+      class="absolute right-16 bottom-1 bg-gray-800 text-white text-xs rounded-lg px-3 py-2 whitespace-nowrap opacity-0 group-hover:opacity-100 transition-opacity pointer-events-none"
+      data-i18n="whatsapp_tooltip">Chat with our team on WhatsApp!</span>
+    <a href="https://wa.me/251946734473?text=Hello%2C%20I%20would%20like%20to%20request%20a%20delivery%20service."
+      target="_blank" class="whatsapp-float" style="position:static;" aria-label="Chat with us on WhatsApp">
+      <i class="fab fa-whatsapp"></i>
+    </a>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SERVICE REQUEST MODAL -->
+  <!-- ============================================ -->
+  <div id="service-modal" class="hidden modal-overlay" onclick="if(event.target===this)closeServiceModal()">
+    <div class="modal-box">
+      <!-- Modal Header -->
+      <div class="modal-header">
+        <div class="flex items-center justify-between">
+          <div>
+            <h2 class="text-xl font-bold" data-i18n="form_modal_title">Request a Service</h2>
+            <p class="text-green-100 text-sm mt-1" data-i18n="form_modal_subtitle">Fill in the details and our team will
+              reach out via WhatsApp.</p>
+          </div>
+          <button onclick="closeServiceModal()"
+            class="w-10 h-10 bg-white/20 hover:bg-white/30 rounded-full flex items-center justify-center transition-colors"
+            aria-label="Close modal">
+            <i class="fas fa-times text-white"></i>
+          </button>
+        </div>
+      </div>
+
+      <!-- Modal Body -->
+      <div class="modal-body">
+        <!-- Success Panel -->
+        <div id="form-success" class="success-panel">
+          <div class="w-20 h-20 bg-green-100 rounded-full flex items-center justify-center mx-auto mb-6">
+            <i class="fas fa-check text-4xl text-brand"></i>
+          </div>
+          <h3 class="text-2xl font-bold text-gray-900 mb-3" data-i18n="form_success_title">Request Received
+            Successfully!</h3>
+          <p class="text-gray-600 mb-8" data-i18n="form_success_msg">Thank you. Our team will contact you shortly via
+            WhatsApp.</p>
+          <div class="flex flex-col sm:flex-row items-center justify-center gap-3">
+            <a id="form-success-wa-link" href="https://wa.me/251946734473" target="_blank"
+              class="px-6 py-3 bg-[#25d366] text-white rounded-full font-semibold hover:bg-[#1da851] transition-all flex items-center gap-2 shadow-md">
+              <i class="fab fa-whatsapp text-lg"></i>
+              <span data-i18n="form_success_whatsapp_btn">Open WhatsApp to Chat Now</span>
+            </a>
+            <button onclick="closeServiceModal()"
+              class="px-6 py-3 border-2 border-gray-300 text-gray-700 rounded-full font-semibold hover:bg-gray-100 transition-all"
+              data-i18n="form_success_close_btn">Close</button>
+          </div>
+        </div>
+
+        <!-- Service Form -->
+        <form id="service-form" onsubmit="handleFormSubmit(event)">
+          <!-- Selected Service Display -->
+          <div class="bg-green-50 border border-green-200 rounded-xl p-4 mb-6">
+            <label class="text-xs font-semibold text-brand-dark uppercase tracking-wide"
+              data-i18n="form_selected_service">Selected Service</label>
+            <input type="text" id="f-service-display" readonly
+              class="w-full bg-transparent border-none text-lg font-bold text-gray-900 mt-1 p-0 focus:outline-none cursor-default">
+            <input type="hidden" id="f-service-type" name="service_type">
+          </div>
+
+          <!-- Base Fields -->
+          <div class="form-field">
+            <label data-i18n="form_full_name">Full Name</label>
+            <input type="text" name="full_name" required data-i18n-ph="form_full_name_ph"
+              placeholder="Enter your full name">
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_phone">Phone Number</label>
+            <input type="tel" name="phone" required data-i18n-ph="form_phone_ph" placeholder="+1 (555) 123-4567">
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_whatsapp">WhatsApp Number</label>
+            <input type="tel" name="whatsapp" required data-i18n-ph="form_whatsapp_ph" placeholder="+251 9XX XXX XXXX">
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_email">Email Address (Optional)</label>
+            <input type="email" name="email" data-i18n-ph="form_email_ph" placeholder="you@example.com">
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_country">Your Country of Residence</label>
+            <input type="text" name="country" required data-i18n-ph="form_country_ph" placeholder="e.g. United States">
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_city">Delivery Destination City / Sub-City</label>
+            <input type="text" name="city" required data-i18n-ph="form_city_ph" placeholder="e.g. Bole, Addis Ababa">
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_product_needed">Product / Item Needed</label>
+            <input type="text" name="product" required data-i18n-ph="form_product_needed_ph"
+              placeholder="What item do you need us to purchase?">
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_product_desc">Product Description & Details</label>
+            <textarea name="product_desc" rows="3" required data-i18n-ph="form_product_desc_ph"
+              placeholder="Describe the item in detail — brand, size, color, dosage, etc."></textarea>
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_quantity">Quantity</label>
+            <input type="text" name="quantity" required data-i18n-ph="form_quantity_ph" placeholder="e.g. 2">
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_delivery_loc">Preferred Delivery Location & Landmark</label>
+            <input type="text" name="delivery_loc" required data-i18n-ph="form_delivery_loc_ph"
+              placeholder="e.g. Near Bole Medhanealem Church, Addis Ababa">
+          </div>
+          <div class="form-field">
+            <label data-i18n="form_notes">Additional Notes / Special Instructions</label>
+            <textarea name="notes" rows="3" data-i18n-ph="form_notes_ph"
+              placeholder="Any extra details or requests..."></textarea>
+          </div>
+
+          <!-- Dynamic: Medicine Fields -->
+          <div id="fields-medicine" class="dynamic-field">
+            <div class="border-t border-green-200 pt-4 mt-2 mb-4">
+              <p class="text-sm font-bold text-brand-dark flex items-center gap-2"><i class="fas fa-pills"></i> Medicine
+                Details</p>
+            </div>
+            <div class="form-field">
+              <label data-i18n="field_med_name">Medicine / Drug Name</label>
+              <input type="text" name="med_name" data-i18n-ph="field_med_name_ph" placeholder="e.g. Amoxicillin 500mg">
+            </div>
+            <div class="form-field">
+              <label data-i18n="field_med_rx">Prescription Available?</label>
+              <div class="flex items-center gap-6 mt-1">
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="has_prescription" value="yes" class="accent-brand">
+                  <span data-i18n="field_med_rx_yes">Yes</span>
+                </label>
+                <label class="flex items-center gap-2 cursor-pointer">
+                  <input type="radio" name="has_prescription" value="no" class="accent-brand" checked>
+                  <span data-i18n="field_med_rx_no">No</span>
+                </label>
+              </div>
+            </div>
+            <div class="form-field" id="field-rx-upload" style="display:none;">
+              <label data-i18n="field_med_upload">Upload Prescription Photo/PDF</label>
+              <input type="file" name="rx_file" accept="image/*,.pdf" class="text-sm">
+              <p class="text-xs text-gray-500 mt-1" data-i18n="field_med_upload_hint">Upload a clear photo or PDF of the
+                prescription</p>
+            </div>
+            <div class="form-field">
+              <label data-i18n="field_med_pharmacy">Pharmacy Preference</label>
+              <input type="text" name="pharmacy" data-i18n-ph="field_med_pharmacy_ph"
+                placeholder="e.g. Kenema Pharmacy, any verified pharmacy">
+            </div>
+            <div class="form-field">
+              <label data-i18n="field_med_urgency">Urgency Level</label>
+              <select name="urgency">
+                <option value="standard" data-i18n="field_med_urgency_standard">Standard</option>
+                <option value="urgent" data-i18n="field_med_urgency_urgent">Urgent</option>
+                <option value="critical" data-i18n="field_med_urgency_critical">Critical / Emergency</option>
+              </select>
+            </div>
+          </div>
+
+          <!-- Dynamic: Electronics Fields -->
+          <div id="fields-electronics" class="dynamic-field">
+            <div class="border-t border-green-200 pt-4 mt-2 mb-4">
+              <p class="text-sm font-bold text-brand-dark flex items-center gap-2"><i class="fas fa-laptop"></i>
+                Electronics Details</p>
+            </div>
+            <div class="form-field">
+              <label data-i18n="field_elec_name">Electronic Device / Model</label>
+              <input type="text" name="elec_name" data-i18n-ph="field_elec_name_ph"
+                placeholder="e.g. Samsung Galaxy A54">
+            </div>
+            <div class="form-field">
+              <label data-i18n="field_elec_brand">Brand Preference</label>
+              <input type="text" name="elec_brand" data-i18n-ph="field_elec_brand_ph"
+                placeholder="e.g. Samsung, Apple, any">
+            </div>
+            <div class="form-field">
+              <label data-i18n="field_elec_link">Product Reference Link (Optional)</label>
+              <input type="url" name="elec_link" data-i18n-ph="field_elec_link_ph"
+                placeholder="Paste a link to the product you want">
+            </div>
+          </div>
+
+          <!-- Dynamic: Gift Fields -->
+          <div id="fields-gift" class="dynamic-field">
+            <div class="border-t border-green-200 pt-4 mt-2 mb-4">
+              <p class="text-sm font-bold text-brand-dark flex items-center gap-2"><i class="fas fa-gift"></i> Gift
+                Details</p>
+            </div>
+            <div class="form-field">
+              <label data-i18n="field_gift_occasion">Occasion / Celebration</label>
+              <select name="occasion">
+                <option value="birthday" data-i18n="field_gift_occasion_birthday">Birthday</option>
+                <option value="anniversary" data-i18n="field_gift_occasion_anniversary">Anniversary</option>
+                <option value="graduation" data-i18n="field_gift_occasion_graduation">Graduation</option>
+                <option value="holiday" data-i18n="field_gift_occasion_holiday">Holiday</option>
+                <option value="get_well" data-i18n="field_gift_occasion_get_well">Get Well</option>
+                <option value="just_because" data-i18n="field_gift_occasion_just_because">Just Because</option>
+              </select>
+            </div>
+            <div class="form-field">
+              <label data-i18n="field_gift_recipient">Recipient Full Name (in Addis)</label>
+              <input type="text" name="gift_recipient" data-i18n-ph="field_gift_recipient_ph"
+                placeholder="Full name of the person receiving the gift">
+            </div>
+            <div class="form-field">
+              <label data-i18n="field_gift_message">Personal Gift Message</label>
+              <textarea name="gift_message" rows="3" data-i18n-ph="field_gift_message_ph"
+                placeholder="Write a message for the greeting card..."></textarea>
+            </div>
+          </div>
+
+          <!-- Submit Buttons -->
+          <div class="flex flex-col sm:flex-row gap-3 mt-6">
+            <button type="submit"
+              class="flex-1 px-6 py-3.5 bg-brand hover:bg-brand-dark text-white rounded-xl font-semibold transition-colors flex items-center justify-center gap-2">
+              <i class="fas fa-paper-plane"></i>
+              <span data-i18n="form_btn_submit">Submit Request</span>
+            </button>
+            <button type="button" onclick="closeServiceModal()"
+              class="px-6 py-3.5 border-2 border-gray-300 text-gray-600 rounded-xl font-semibold hover:bg-gray-100 transition-colors"
+              data-i18n="form_btn_cancel">Cancel</button>
+          </div>
+        </form>
+      </div>
+    </div>
+  </div>
+
+  <!-- ============================================ -->
+  <!-- SCRIPTS -->
+  <!-- ============================================ -->
+  <script src="translations.js"></script>
+  <script src="https://unpkg.com/aos@2.3.4/dist/aos.js"></script>
+
+  <script>
+    // ---- Language Switcher ----
+    let currentLang = 'en';
+
+    function setLang(lang) {
+      currentLang = lang;
+
+      document.querySelectorAll('[data-i18n]').forEach(el => {
+        const key = el.getAttribute('data-i18n');
+        if (translations[lang]?.[key]) el.textContent = translations[lang][key];
+      });
+
+      document.querySelectorAll('[data-i18n-ph]').forEach(el => {
+        const key = el.getAttribute('data-i18n-ph');
+        if (translations[lang]?.[key]) el.placeholder = translations[lang][key];
+      });
+
+      ['en', 'am', 'om'].forEach(l => {
+        document.getElementById('lang-' + l)?.classList.toggle('active', l === lang);
+        document.getElementById('lang-' + l + '-mobile')?.classList.toggle('active', l === lang);
+      });
+
+      const currentServiceType = document.getElementById('f-service-type')?.value;
+      if (currentServiceType && translations[lang]) {
+        const titleKey = 'service_' + currentServiceType + '_title';
+        if (translations[lang][titleKey]) {
+          document.getElementById('f-service-display').value = translations[lang][titleKey];
+        }
+      }
+
+      document.documentElement.lang = lang === 'am' ? 'am' : lang === 'om' ? 'om' : 'en';
+    }
+
+    // ---- Mobile Menu ----
+    document.getElementById('mobile-menu-button').addEventListener('click', function () {
+      document.getElementById('mobile-menu').classList.toggle('hidden');
+    });
+
+    // Close mobile menu on nav link click
+    document.querySelectorAll('.mobile-nav-link').forEach(link => {
+      link.addEventListener('click', function () {
+        document.getElementById('mobile-menu').classList.add('hidden');
+      });
+    });
+
+    // ---- FAQ Accordion ----
+    document.querySelectorAll('.faq-button').forEach(button => {
+      button.addEventListener('click', function () {
+        const answer = this.nextElementSibling;
+        const icon = this.querySelector('.faq-icon');
+        answer.classList.toggle('hidden');
+        icon.style.transform = answer.classList.contains('hidden') ? 'rotate(0deg)' : 'rotate(180deg)';
+      });
+    });
+
+    // ---- Service Modal ----
+    function openServiceModal(type) {
+      document.getElementById('service-modal').classList.remove('hidden');
+      document.body.style.overflow = 'hidden';
+
+      document.getElementById('f-service-type').value = type;
+
+      const serviceNames = {
+        medicine: translations[currentLang].service_medicine_title,
+        document: translations[currentLang].service_document_title,
+        electronics: translations[currentLang].service_electronics_title,
+        gift: translations[currentLang].service_gift_title,
+        shopping: translations[currentLang].service_shopping_title,
+        other: translations[currentLang].service_other_title,
+      };
+      document.getElementById('f-service-display').value = serviceNames[type] || type;
+
+      ['fields-medicine', 'fields-electronics', 'fields-gift'].forEach(id => {
+        document.getElementById(id).classList.remove('visible');
+      });
+
+      if (type === 'medicine') document.getElementById('fields-medicine').classList.add('visible');
+      if (type === 'electronics') document.getElementById('fields-electronics').classList.add('visible');
+      if (type === 'gift') document.getElementById('fields-gift').classList.add('visible');
+
+      setLang(currentLang);
+
+      document.getElementById('form-success').classList.remove('visible');
+      document.getElementById('service-form').style.display = 'block';
+    }
+
+    function closeServiceModal() {
+      document.getElementById('service-modal').classList.add('hidden');
+      document.body.style.overflow = '';
+      document.getElementById('service-form').reset();
+      document.getElementById('form-success').classList.remove('visible');
+      document.getElementById('service-form').style.display = 'block';
+    }
+
+    function handleFormSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const required = form.querySelectorAll('[required]');
+      let valid = true;
+      required.forEach(field => {
+        field.style.borderColor = field.value.trim() ? '#D1FAE5' : '#EF4444';
+        if (!field.value.trim()) valid = false;
+      });
+      if (!valid) return;
+
+      const getVal = (name) => (form.querySelector(`[name="${name}"]`)?.value || '').trim();
+      const serviceType = document.getElementById('f-service-display')?.value || getVal('service_type') || 'Delivery';
+      const fullName = getVal('full_name');
+      const phone = getVal('phone');
+      const whatsapp = getVal('whatsapp');
+      const email = getVal('email');
+      const country = getVal('country');
+      const city = getVal('city');
+      const product = getVal('product');
+      const productDesc = getVal('product_desc');
+      const quantity = getVal('quantity');
+      const deliveryLoc = getVal('delivery_loc');
+      const notes = getVal('notes');
+
+      let msg = `*NEW LEWEDAJO DELIVERY REQUEST*\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `🛍️ *Service:* ${serviceType}\n`;
+      msg += `👤 *Customer Name:* ${fullName}\n`;
+      msg += `📞 *Phone:* ${phone}\n`;
+      msg += `📱 *WhatsApp:* ${whatsapp}\n`;
+      if (email) msg += `✉️ *Email:* ${email}\n`;
+      msg += `🌍 *Residence Country:* ${country}\n`;
+      msg += `📍 *Delivery Destination:* ${city}\n`;
+      msg += `━━━━━━━━━━━━━━━━━━━━━\n`;
+      msg += `📦 *Item Needed:* ${product}\n`;
+      msg += `🔢 *Quantity:* ${quantity}\n`;
+      msg += `📝 *Description:* ${productDesc}\n`;
+      msg += `🎯 *Location / Landmark:* ${deliveryLoc}\n`;
+
+      const typeKey = document.getElementById('f-service-type')?.value;
+      if (typeKey === 'medicine') {
+        const medName = getVal('med_name');
+        const hasRx = form.querySelector('input[name="has_prescription"]:checked')?.value || 'no';
+        const pharmacy = getVal('pharmacy');
+        const urgency = getVal('urgency');
+        msg += `\n*💊 Medicine Details:*\n`;
+        if (medName) msg += `• Drug Name: ${medName}\n`;
+        msg += `• Prescription Available: ${hasRx === 'yes' ? 'Yes' : 'No'}\n`;
+        if (pharmacy) msg += `• Preferred Pharmacy: ${pharmacy}\n`;
+        if (urgency) msg += `• Urgency: ${urgency.toUpperCase()}\n`;
+      } else if (typeKey === 'electronics') {
+        const elecName = getVal('elec_name');
+        const brand = getVal('elec_brand');
+        const link = getVal('elec_link');
+        msg += `\n*💻 Electronics Details:*\n`;
+        if (elecName) msg += `• Device/Model: ${elecName}\n`;
+        if (brand) msg += `• Brand: ${brand}\n`;
+        if (link) msg += `• Reference Link: ${link}\n`;
+      } else if (typeKey === 'gift') {
+        const occasion = getVal('occasion');
+        const recipient = getVal('gift_recipient');
+        const giftMsg = getVal('gift_message');
+        msg += `\n*🎁 Gift Details:*\n`;
+        if (occasion) msg += `• Occasion: ${occasion}\n`;
+        if (recipient) msg += `• Recipient in Addis: ${recipient}\n`;
+        if (giftMsg) msg += `• Personal Card Message: "${giftMsg}"\n`;
+      }
+
+      if (notes) {
+        msg += `\n💬 *Special Notes:* ${notes}\n`;
+      }
+
+      const waUrl = `https://wa.me/251946734473?text=${encodeURIComponent(msg)}`;
+
+      const successWaBtn = document.getElementById('form-success-wa-link');
+      if (successWaBtn) {
+        successWaBtn.href = waUrl;
+      }
+
+      document.getElementById('service-form').style.display = 'none';
+      document.getElementById('form-success').classList.add('visible');
+
+      // Immediately open WhatsApp with the complete order info
+      window.open(waUrl, '_blank') || (window.location.href = waUrl);
+    }
+
+    // ---- Footer Message Form ----
+    function handleFooterSubmit(event) {
+      event.preventDefault();
+      const form = event.target;
+      const name = (form.querySelector('[name="footer_name"]')?.value || '').trim();
+      const email = (form.querySelector('[name="footer_email"]')?.value || '').trim();
+      const msg = (form.querySelector('[name="footer_msg"]')?.value || '').trim();
+
+      if (!name || !email || !msg) return;
+
+      const subject = `LEWEDAJO Website Message from ${name}`;
+      const body = `Name: ${name}\nEmail: ${email}\n\nMessage:\n${msg}`;
+      const mailtoUrl = `mailto:lewedajodelivery@gmail.com?subject=${encodeURIComponent(subject)}&body=${encodeURIComponent(body)}`;
+
+      const waText = `*Message from LEWEDAJO Website*\n👤 *Name:* ${name}\n✉️ *Email:* ${email}\n💬 *Message:* ${msg}`;
+      const waUrl = `https://wa.me/251946734473?text=${encodeURIComponent(waText)}`;
+
+      // Open email client
+      window.location.href = mailtoUrl;
+
+      // Display helpful feedback
+      const feedback = document.getElementById('footer-feedback');
+      if (feedback) {
+        feedback.innerHTML = `Email client opened! You can also <a href="${waUrl}" target="_blank" class="underline font-bold text-white hover:text-green-300">chat directly on WhatsApp</a>.`;
+        feedback.classList.remove('hidden');
+      }
+
+      form.reset();
+    }
+
+    // ---- Prescription upload toggle ----
+    document.querySelectorAll('input[name="has_prescription"]').forEach(radio => {
+      radio.addEventListener('change', function () {
+        document.getElementById('field-rx-upload').style.display =
+          this.value === 'yes' ? 'block' : 'none';
+      });
+    });
+
+    // ---- AOS Init ----
+    AOS.init({ duration: 800, once: true });
+  </script>
+
+</body>
+
+</html>
